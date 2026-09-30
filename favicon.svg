@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- 背景圆角方形 -->
+  <rect x="8" y="8" width="84" height="84" rx="16" fill="#121212"/>
+  
+  <!-- 翻页卡片主体 -->
+  <g transform="translate(18, 16)">
+    <!-- 卡片背景 -->
+    <rect x="0" y="0" width="64" height="68" rx="8" fill="#1D1D20"/>
+    <rect x="0" y="0" width="64" height="34" rx="8" ry="8" fill="#2C2C2F"/>
+    
+    <!-- 折线 -->
+    <line x1="0" y1="34" x2="64" y2="34" stroke="#000" stroke-width="1.5" opacity="0.6"/>
+    <line x1="0" y1="34" x2="64" y2="34" stroke="#fff" stroke-width="0.5" opacity="0.1"/>
+    
+    <!-- 数字 "8" - 上半部分 (卡片上半区 y=0~34，中心 y=17) -->
+    <text x="32" y="19" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#F0F0F0" text-anchor="middle" dominant-baseline="middle">8</text>
+    <!-- 数字 "8" - 下半部分 (卡片下半区 y=34~68，中心 y=51) -->
+    <text x="32" y="53" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#F0F0F0" text-anchor="middle" dominant-baseline="middle">8</text>
+  </g>
+  
+  <!-- 右上角装饰点 - 暗示时间流动 -->
+  <circle cx="78" cy="22" r="4" fill="#F0F0F0" opacity="0.3"/>
+  <circle cx="84" cy="28" r="2.5" fill="#F0F0F0" opacity="0.2"/>
+</svg>
