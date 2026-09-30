@@ -27,8 +27,8 @@
     --btn-bg: rgba(255, 255, 255, .08);
     --btn-hover: rgba(255, 255, 255, .18);
     --btn-on: rgba(255, 255, 255, .3);
-    --shadow: 0 22px 46px rgba(0, 0, 0, .6);
-    --radius: 14px;
+    --shadow: 0 28px 58px rgba(0, 0, 0, .65);
+    --radius: 18px;
   }
 
   :root[data-theme="bauhaus"] {
@@ -43,7 +43,7 @@
     --btn-bg: rgba(0, 0, 0, .05);
     --btn-hover: rgba(0, 0, 0, .1);
     --btn-on: rgba(0, 0, 0, .18);
-    --shadow: 0 20px 40px rgba(20, 22, 26, .2);
+    --shadow: 0 24px 48px rgba(20, 22, 26, .25);
   }
 
   :root[data-theme="retro"] {
@@ -58,7 +58,7 @@
     --btn-bg: rgba(241, 231, 211, .08);
     --btn-hover: rgba(241, 231, 211, .18);
     --btn-on: rgba(241, 231, 211, .28);
-    --shadow: 0 22px 46px rgba(0, 0, 0, .55);
+    --shadow: 0 28px 58px rgba(0, 0, 0, .6);
   }
 
   /* ---- 深海蓝 ---- */
@@ -74,7 +74,7 @@
     --btn-bg: rgba(232, 244, 253, .08);
     --btn-hover: rgba(232, 244, 253, .18);
     --btn-on: rgba(232, 244, 253, .28);
-    --shadow: 0 22px 46px rgba(0, 0, 0, .55);
+    --shadow: 0 28px 58px rgba(0, 0, 0, .6);
   }
 
   /* ---- 日落暖橙 ---- */
@@ -90,7 +90,7 @@
     --btn-bg: rgba(255, 243, 232, .08);
     --btn-hover: rgba(255, 243, 232, .18);
     --btn-on: rgba(255, 243, 232, .28);
-    --shadow: 0 22px 46px rgba(0, 0, 0, .5);
+    --shadow: 0 28px 58px rgba(0, 0, 0, .55);
   }
 
   /* ---- 森林绿 ---- */
@@ -106,7 +106,7 @@
     --btn-bg: rgba(232, 245, 233, .08);
     --btn-hover: rgba(232, 245, 233, .18);
     --btn-on: rgba(232, 245, 233, .28);
-    --shadow: 0 22px 46px rgba(0, 0, 0, .55);
+    --shadow: 0 28px 58px rgba(0, 0, 0, .6);
   }
 
   /* ---- 奶油暖白 ---- */
@@ -122,7 +122,7 @@
     --btn-bg: rgba(42, 36, 24, .06);
     --btn-hover: rgba(42, 36, 24, .12);
     --btn-on: rgba(42, 36, 24, .18);
-    --shadow: 0 20px 40px rgba(42, 36, 24, .18);
+    --shadow: 0 24px 48px rgba(42, 36, 24, .22);
   }
 
   /* ---- 午夜蓝 ---- */
@@ -138,7 +138,7 @@
     --btn-bg: rgba(232, 232, 248, .08);
     --btn-hover: rgba(232, 232, 248, .18);
     --btn-on: rgba(232, 232, 248, .28);
-    --shadow: 0 22px 46px rgba(0, 0, 0, .55);
+    --shadow: 0 28px 58px rgba(0, 0, 0, .6);
   }
 
   /* ---- 薰衣草 ---- */
@@ -154,7 +154,7 @@
     --btn-bg: rgba(240, 232, 248, .08);
     --btn-hover: rgba(240, 232, 248, .18);
     --btn-on: rgba(240, 232, 248, .28);
-    --shadow: 0 22px 46px rgba(0, 0, 0, .55);
+    --shadow: 0 28px 58px rgba(0, 0, 0, .6);
   }
 
   /* ---- 石板灰 ---- */
@@ -170,7 +170,7 @@
     --btn-bg: rgba(232, 232, 236, .08);
     --btn-hover: rgba(232, 232, 236, .18);
     --btn-on: rgba(232, 232, 236, .28);
-    --shadow: 0 22px 46px rgba(0, 0, 0, .55);
+    --shadow: 0 28px 58px rgba(0, 0, 0, .6);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -209,17 +209,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 22px;
+    gap: 28px;
   }
 
-  .group { display: flex; gap: 10px; }
+  .group { display: flex; gap: 12px; }
 
   /* 数字卡片 */
   .digit {
     position: relative;
-    width: 118px;
-    height: 184px;
-    --fs: calc(184px * 1.06);
+    width: 144px;
+    height: 228px;
+    --fs: calc(228px * 1.08);
     backface-visibility: hidden;
   }
 
@@ -229,11 +229,29 @@
     border-radius: var(--radius);
     overflow: hidden;
     background: var(--card-bot);
-    box-shadow: var(--shadow);
-    perspective: 900px;
+    box-shadow:
+      var(--shadow),
+      0 2px 0 rgba(0, 0, 0, .25),
+      inset 0 1px 0 rgba(255, 255, 255, .06),
+      inset 0 -3px 8px rgba(0, 0, 0, .35);
+    perspective: 1300px;
     perspective-origin: 50% 50%;
     transform-style: preserve-3d;
     backface-visibility: hidden;
+  }
+
+  /* 卡片立体厚度 —— 底部与侧边的 3D 投影，让卡片像实体一样有深度 */
+  .card::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    bottom: -5px;
+    height: 10px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .15), rgba(0, 0, 0, .5));
+    border-radius: 0 0 8px 8px;
+    pointer-events: none;
+    z-index: -1;
   }
 
   .half {
@@ -336,31 +354,35 @@
     animation-delay: var(--half, 300ms);
   }
 
-  /* 折线与折痕阴影 */
+  /* 折线与折痕阴影 —— 加粗加深，强化立体折痕感 */
   .fold {
     position: absolute;
     left: 0;
     top: 50%;
     width: 100%;
-    height: 2px;
-    margin-top: -1px;
+    height: 4px;
+    margin-top: -2px;
     background: var(--fold);
     z-index: 6;
     pointer-events: none;
+    border-radius: 2px;
+    box-shadow:
+      0 -3px 6px rgba(0, 0, 0, .25),
+      0 3px 6px rgba(0, 0, 0, .25);
   }
   .fold::before {
     content: '';
     position: absolute;
     left: 0; right: 0; bottom: 100%;
-    height: 26px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, .32), rgba(0, 0, 0, 0));
+    height: 30px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .38), rgba(0, 0, 0, 0));
   }
   .fold::after {
     content: '';
     position: absolute;
     left: 0; right: 0; top: 100%;
-    height: 22px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, .24), rgba(0, 0, 0, 0));
+    height: 26px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .30), rgba(0, 0, 0, 0));
   }
 
   /* 冒号 */
@@ -369,19 +391,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-    width: 20px;
-    height: 184px;
+    gap: 36px;
+    width: 24px;
+    height: 228px;
     color: var(--text);
     opacity: .8;
     font-family: 'DejaVu Sans Mono', 'SF Mono', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+    text-shadow: 0 0 1px currentColor;
   }
   .colon i {
-    width: 13px;
-    height: 13px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: currentColor;
     animation: blink 2s ease-in-out infinite;
+    box-shadow: 0 0 6px currentColor;
   }
   @keyframes blink {
     0%, 100% { opacity: .35; }
@@ -390,15 +414,16 @@
 
   /* 日期 */
   .date {
-    margin-top: 30px;
+    margin-top: 36px;
     text-align: center;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: .3em;
-    text-indent: .3em;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .35em;
+    text-indent: .35em;
     text-transform: uppercase;
     color: var(--muted);
     white-space: nowrap;
+    text-shadow: 0 0 1px var(--muted);
   }
   .date .period { margin-left: .8em; letter-spacing: .2em; }
   body.no-date .date,
