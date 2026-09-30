@@ -183,7 +183,7 @@
   }
 
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
@@ -202,6 +202,7 @@
     transform: translate(-50%, -50%) rotate(var(--rot, 0deg)) scale(var(--fit, 1)) translateZ(0);
     transform-origin: center center;
     will-change: transform;
+    backface-visibility: hidden;
   }
 
   .digits {
@@ -219,6 +220,7 @@
     width: 118px;
     height: 184px;
     --fs: calc(184px * 1.06);
+    backface-visibility: hidden;
   }
 
   .card {
@@ -231,6 +233,7 @@
     perspective: 900px;
     perspective-origin: 50% 50%;
     transform-style: preserve-3d;
+    backface-visibility: hidden;
   }
 
   .half {
@@ -240,6 +243,7 @@
     height: 50%;
     overflow: hidden;
     backface-visibility: hidden;
+    will-change: transform;
   }
 
   .half.top {
@@ -274,6 +278,10 @@
     transform: translateZ(0);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    /* 等宽字体 + 微阴影，确保缩放后边缘锐利不发虚 */
+    font-family: 'DejaVu Sans Mono', 'SF Mono', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+    text-shadow: 0 0 1px var(--text);
   }
 
   .half.top > span { top: 0; }
@@ -366,6 +374,7 @@
     height: 184px;
     color: var(--text);
     opacity: .8;
+    font-family: 'DejaVu Sans Mono', 'SF Mono', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
   }
   .colon i {
     width: 13px;
